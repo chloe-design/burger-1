@@ -7,18 +7,20 @@ router.get("/", function(req, res) {
         var hbsObject = {
           burgers: data
         };
-        console.log(hbsObject);
+        // console.log("This is the handlebars obj: " + hbsObject);
     res.render("index", hbsObject);
 })
 });
 
 router.post("/api/burgers", function(req, res) {
+  console.log(req.body.burger_name)
     burger.create([
-      "name", "devour"
+      "burger_name", "devoured"
     ], [
-      req.body.name, req.body.devour
+      req.body.burger_name, req.body.devoured
     ], function(result) {
       // Send back the ID of the new quote
+      console.log("New burger: " + result)
       res.json({ id: result.insertId });
     });
   });
@@ -29,7 +31,7 @@ router.post("/api/burgers", function(req, res) {
     console.log("condition", condition);
   
     burger.update({
-      devour: req.body.devour
+      devoured: req.body.devoured
     }, condition, function(result) {
       if (result.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404

@@ -4,8 +4,8 @@
 
 <div class="burger">
 	<div id="newBurger">
-		<form action="/" method="POST">
-			<input id="burger-name" type="text" name="burger_name" placeholder="Add burger">
+		<form class="create-form">
+			<input id="burger" type="text" name="burger_name" placeholder="Add burger">
 			<button id="submit-btn" type="submit">Submit</button>
 		</form>
 	</div>
@@ -14,11 +14,11 @@
 		<div id="burgers">
 			<h2>Add Burger</h2>
 			{{#each burgers}}
-				{{#unless this.devoured}}
+				{{#unless devoured}}
 				  <div class="burger">
-				    <form class="devour-form" action="/{{id}}?_method=PUT" method="POST">
+				    {{!-- <form class="devour-form" action="/{{id}}?_method=PUT" method="POST">
 				  		<button class="eat-btn">Eat!</button>
-				    </form>
+				    </form> --}}
 						{{burger_name}} <span>#{{id}}</span>
 				  </div>
 				{{/unless}}
@@ -27,7 +27,7 @@
 		<div id="burgers-devoured">
 			<h2>Devoured</h2>
 			{{#each burgers}}
-				{{#if this.devoured}}
+				{{#if devoured}}
 				  <div class="burger">{{burger_name}} <span>#{{id}}</span></div>
 				{{/if}}
 			{{/each}}

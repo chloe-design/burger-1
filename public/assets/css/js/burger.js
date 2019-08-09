@@ -12,6 +12,7 @@ $(function() {
       }).then(
         function() {
           console.log(newDevoured);
+          //reload the page to get the updated list
           location.reload();
         }
       );
@@ -20,21 +21,22 @@ $(function() {
     $(".create-form").on("submit", function(event) {
         //make sure to preventDefault on a submit event.
         event.preventDefault();
-
+        console.log("Trying to create a burger.")
         var newBurger = {
-          name: $("#br").val().trim(),
+          burger_name: $("#burger").val(),
+          devoured: 0
         };
 
         //send the POST
-        $.ajax("/api/burgers/", {
+        $.ajax("/api/burgers", {
           type: "POST",
           data: newBurger
         }).then(
           function() {
             console.log("Creat new burger");
+            //reload the page to get the updated list
             location.reload();
           }
         );
       });
       });
-;
