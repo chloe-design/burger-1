@@ -8,12 +8,12 @@ router.get("/", function(req, res) {
           burgers: data
         };
         console.log(hbsObject);
-    res.render("index");
+    res.render("index", hbsObject);
 })
 });
 
 router.post("/api/burgers", function(req, res) {
-    cat.create([
+    burger.create([
       "name", "devour"
     ], [
       req.body.name, req.body.devour
