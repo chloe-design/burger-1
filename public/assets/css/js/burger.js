@@ -12,7 +12,6 @@ $(function() {
       }).then(
         function() {
           console.log(newDevoured);
-          //reload the page to get the updated list
           location.reload();
         }
       );
@@ -32,26 +31,10 @@ $(function() {
           data: newBurger
         }).then(
           function() {
-            console.log("Created new burger");
-            //reload the page to get the updated list
+            console.log("Creat new burger");
             location.reload();
           }
         );
       });
-
-      //based on code from beginning
-      $(".delete-burger").on("click", function(event) {
-        var id = $(this).data("id");
-        
-        //send the DELETE request like POST
-        $.ajax("/api/burgers/" + id, {
-          type: "DELETE",
-        }).then(
-          function() {
-            console.log("Deleted burger", id);
-            //reload the page to get the updated list
-            location.reload();
-          }
-        );
       });
-    });
+;
