@@ -26,7 +26,7 @@ Requirements:
 - Node and MySQL to query and route data within app
 - Handlebars to generate HTML
 
-Demo: 
+Demo: https://enigmatic-everglades-89310.herokuapp.com/
 
 Author:
 Jennifer Kwon
