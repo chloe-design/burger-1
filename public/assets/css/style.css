@@ -26,3 +26,7 @@ form {
 #form {
     align-content: center;
 }
+
+#burgers, #burgers-devoured {
+    color: white;
+}
